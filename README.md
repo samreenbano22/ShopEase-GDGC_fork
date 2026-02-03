@@ -12,15 +12,15 @@ git clone <repository-url>
 cd Ecomm-App-Supabase
 
 # Run the installation script
-chmod +x install.sh
+chmod +x install.sh start.sh
 ./install.sh
 ```
 
 ### Option 2: Manual Setup
 
 ```bash
-# 1. Install root dependencies
-npm install
+# 1. Install all dependencies
+npm install --workspaces
 
 # 2. Install frontend dependencies
 cd frontend && npm install && cd ..
@@ -34,10 +34,24 @@ cd backend && npm run setup:sqlite && cd ..
 
 ## 🏃 Running the Application
 
-### Start Both Frontend & Backend
+### Using Start Script (Quickest)
 
 ```bash
+chmod +x start.sh
+./start.sh
+```
+
+### Manual Commands
+
+```bash
+# Start Both Frontend & Backend
 npm run dev
+
+# Start Only Frontend
+cd frontend && npm run dev
+
+# Start Only Backend
+cd backend && npm run dev:sqlite
 ```
 
 This starts:
@@ -261,6 +275,13 @@ cd frontend && npm run preview
 ```
 
 ## 📝 Available Scripts
+
+### Shell Scripts (Quick Access)
+
+```bash
+./install.sh    # Install all dependencies and setup database
+./start.sh     # Start both frontend & backend servers
+```
 
 ### Root Level
 ```bash
